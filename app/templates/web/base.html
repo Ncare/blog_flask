@@ -1,0 +1,127 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+	<title> world </title>
+
+	<!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/front.js') }}"></script>
+
+</head>
+<body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">HTML</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" id="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/tags">Tags</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li><a href="{{url_for('admin.signup')}}">Register</a></li>--> <!-- 隐藏掉注册-->
+              <!-- 隐藏登陆 -->
+            <!--<li class="active"><a href="{{url_for('admin.signin')}}">Login<span class="sr-only">(current)</span></a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+	<div class="container">
+    <div class="row">
+  		<div class="col-xs-12 col-md-8 table-bordered">
+			
+			<div style="height:20px;">
+				
+			</div>
+
+            {% block content %}
+            {% endblock %}
+
+            {% block tag %}
+            {% endblock %}
+
+            {% block about %}
+            {% endblock %}
+
+
+  		</div>
+
+
+        <div class="col-xs-6 col-md-4">
+
+			<div class="input-group">
+      			<input type="text" class="form-control" placeholder="Search for..." name="keyword">
+      			<span class="input-group-btn">
+        		<button class="btn btn-default" type="button" onclick="searchKey()">Go!</button>
+                </span>
+    		</div>
+			<span style="height:25px; display:block">
+
+			</span>
+  			<div class="panel panel-default">
+   				<div class="panel-heading">
+      				<h3 class="panel-title">
+         				公告
+      				</h3>
+   				</div>
+   				<div class="panel-body">
+      				非常欢迎热爱的后端的童鞋加入我们（晋升作者），在这里发表你的文章，记录你的学习心得，也可以注册普通会员投稿给我们，一起努力吧！
+					联系邮箱：xmm@qq.com
+   				</div>
+			</div>
+
+            {% block recently %}
+            {% endblock %}
+
+
+  		</div>
+
+
+
+
+
+
+	</div>
+	</div>
+
+    {% block script %}
+    <script type="text/javascript">
+
+
+        $('#nav li').hover(function () {
+            $('#nav li').removeClass('active');
+            $(this).addClass('active');
+        }
+        )
+
+    </script>
+    {% endblock %}
+
+
+</body>
+</html>

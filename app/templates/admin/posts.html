@@ -1,0 +1,138 @@
+{% extends "admin/index.html" %}
+
+{% block show_posts %}
+<div class="panel panel-default">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">文章列表</h3>
+  		</div>
+        {% if posts %}
+			{% for post in posts %}
+			<div class="panel-body">
+    		<p style="display:block; float:left">{{post.title}}</p> <span>&nbsp;{{post.updateTime}}&nbsp;</span><span><a href="{{url_for('admin.update_post', id=post.id)}}">更新</a></span> |<span>
+                <a href="" onclick="onDelete(this)">删除</a><input type="hidden" value="{{post.id}}"></span><input type="hidden" value="{{post.id}}">
+                | <span><a href='' onmouseover="onShowComment(this)">查看评论</a></span><input type="hidden" value="{{post.id}}">
+  			</div>
+			{% endfor %}
+		{% else %}
+        <div> 没有文章</div>
+		{% endif %}
+
+
+        {% from 'common/pager.html' import page_func %}
+        {{ page_func("posts?page=", '', pager) }}
+
+</div>
+
+<script type="text/javascript">
+
+function onDelete(thisObj) {
+    var id = $(thisObj).parent().next().val();
+
+    data = {};
+    data.post_id = id;
+    data = JSON.stringify(data);
+
+    $.ajax({
+        url:"/admin/delete",
+        type:"POST",
+        data:data,
+        contentType:"application/json",
+        success:function(data){
+            if(data.success==true){
+                alert(data.message);
+                location.reload();
+            }
+        },
+        error:function(){
+            alert("服务器出问题，提交未成功！");
+        }
+    })
+}
+
+
+function onShowComment(thisObj){
+    var id = $(thisObj).parent().next().val();
+
+    data = {};
+    data.id = id;
+    data = JSON.stringify(data);
+
+    $.ajax({
+        url:"showComment",
+        type:"POST",
+        data:data,
+        contentType:"application/json",
+        success:function(data){
+            if(data.success=true){
+
+                count = data.count;
+                info = data.info;
+
+                var commentList = $('#commentList');
+
+                commentList.children().remove();
+
+                if(count==0){
+                    alert("没有评论");
+                    }
+                else{
+                    var newPanel = panel(info);
+
+                    commentList.append(newPanel);
+
+                    }
+            };
+
+        },
+        error:function(){
+
+        }
+
+    }
+
+    )
+
+}
+
+var panel = function(data) {
+
+    var panelDiv = $('<div></div>');
+    panelDiv.addClass('panel panel-default');
+
+    var panelHead = $('<div></div>');
+    panelHead.addClass('panel-heading')
+    var H = $('<h3>评论</h3>');
+    H.addClass('panel-title');
+    H.appendTo(panelHead);
+
+    panelHead.appendTo(panelDiv);
+
+    for(var i=0; i<data.length; i++)
+    {
+        var panelBody = $('<div></div>');
+        panelBody.addClass('panel-body');
+
+        panelBody.append("<p style='display:block; float:left'>" + data[i].name + "&nbsp; At&nbsp;</p>");
+        panelBody.append("<p>" + data[i].createAt + '</p>');
+        //panelBody.append("<a href='/deleteComment/'"+ data[i].id + ">" + "删除" + "</a>");
+        u = $('<a>删除</a>');
+        url = '/deleteComment/?id=' + data[i].id;
+        u.attr("href", url)
+        u.attr("onclick", "onDeleteComment()")
+        u.appendTo(panelBody);
+        panelBody.append("<p>" + data[i].comments + '</p>');
+
+        panelBody.appendTo(panelDiv);
+    }
+
+    return panelDiv;
+}
+
+function onDeleteComment(){
+
+    // delete comment and delete info
+    
+}
+</script>
+
+{% endblock %}

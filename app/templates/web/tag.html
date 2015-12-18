@@ -1,0 +1,19 @@
+{% extends "web/base.html" %}
+
+
+{% block tag %}
+
+        {% if tags %}
+        <ul >
+            {% for tag in tags %}
+
+            <li class="" style="list-style-type:square;">   <h4><a href="{{ url_for('web.tagList', tag=tag.name)}}">{{ tag.name }}</a> </h4> </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <b>no tags!</b>
+        {% endif %}
+
+{% endblock %}
+
+

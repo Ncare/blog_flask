@@ -1,0 +1,42 @@
+{% macro page_func(prefix, suffix, pager) %}
+
+{% set bar=2 %}
+
+{% set pagecount=pager.sumPage %}
+{% set pageindex=pager.currentPage %}
+{% set pageprv=pager.has_prv %}
+{% set pagenext=pager.has_next %}
+
+<ul class="pagination">
+
+    {% if pageprv %}
+    <li>
+      <a href="{{prefix}}{{pageindex-1}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% endif %}
+
+    {% for index in range(pageindex-bar, pageindex) %}
+        {% if index>=1 %}
+            <li><a href="{{prefix}}{{index}}">{{index}}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    <li class="active"><span>{{pageindex}}</span></li>
+
+    {% for index in range(pageindex+1, pageindex+bar+1) %}
+        {% if index<=pagecount %}
+            <li><a href="{{prefix}}{{index}}">{{index}}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    {% if pagenext %}
+    <li>
+      <a href="{{prefix}}{{pageindex+1}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% endif %}
+</ul>
+{% endmacro %}

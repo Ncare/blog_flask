@@ -1,0 +1,131 @@
+{% extends 'web/base.html' %}
+
+
+{% block content %}
+        <form>
+            <input type="hidden" id="post_id" value="{{post.id}}">
+        </form>
+  			<div class="table " style="border-bottom: 1px #eee solid">
+				<h4>{{post.title}}</h4>
+				<span class="glyphicon glyphicon-user" >&nbsp;xiong&nbsp;</span>
+				<span class="glyphicon glyphicon-calendar" aria-hidden="true">&nbsp;{{post.updateAt}}&nbsp;</span>
+				<span class="glyphicon glyphicon-comment" aria-hidden="true">&nbsp;{{count}}&nbsp;</span>
+                {% if tags %}
+                <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                    {% for tag in tags %}
+                    {{ tag }}
+                    {% endfor %}
+                    </span>
+                {% endif %}
+				<p class="p_main" style="margin-top:10px;">{{post.content | safe }}</p>
+  			</div>
+        
+        <nav>
+          <ul class="pager">
+              {% if prePostId %}
+              <li class="previous"><a href="{{url_for('web.post', id=prePostId)}}"><span aria-hidden="true">&larr;</span> Older</a></li>
+              {% endif %}
+              {% if nextPostId %}
+              <li class="next"><a href="{{url_for('web.post', id=nextPostId)}}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+              {% endif %}
+          </ul>
+        </nav>
+
+        <div class="" style="border:none;" id="com">
+          <div class="list-group-item" style="border:none;" >
+            评论
+          </div>
+
+          {% if cs %}
+            {% for comment in cs %}
+                 <div class="list-group-item">
+                    <a href="#">{{comment.name}}</a>
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true">{{comment.email}}</span>
+                    <p>{{comment.comments}}</p>
+                 </div>
+            {% endfor %}
+          {% else %}
+            <b  id="noComment">no comment!</b>
+          {% endif %}
+        </div>
+
+
+        <div style="margin-top: 10px">
+            <form >
+            <div class="form-group">
+                <label >Name</label>
+                <input type="text" class="form-control" id="nameArea" placeholder="Name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" id="emailArea" placeholder="Email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label>Comment</label>
+                <textarea class="form-control" rows="3" id="textArea" name="Text" ></textarea>
+            </div>
+            <input type="reset" name="reset" style="display: none;" />
+            <button type="submit" class="btn btn-default" onclick="comSubmit(); return false">Submit</button>
+            </form>
+        </div>
+
+
+<!-- 异步提交评论 --->
+<script type="text/javascript">
+
+function comSubmit(){
+    var name = $('#nameArea').val().trim();
+    var email = $('#emailArea').val().trim();
+    var comment = $('#textArea').val().trim();
+
+    if(comment==""){
+        alert("未填写评论内容！");
+        return false;
+    }
+
+    var newComment = {};
+    newComment.name = name;
+    newComment.email = email;
+    newComment.comment = comment;
+    newComment.post_id =  $('#post_id').val();
+    newComment = JSON.stringify(newComment);
+
+    $.ajax({
+        url:"/comment",
+        type:"POST",
+        data:newComment,
+        contentType:"application/json",
+        success:function(data){
+            //data = JSON.stringify(data);
+            if(data.success==true){
+                alert("评论成功");
+
+                if ($('#noComment')){
+                    $('#noComment').remove();
+                }
+                var res = "<div class='list-group-item'>" + "<a href='#'>" + name +"</a><span class='glyphicon glyphicon-envelope' aria-hidden='true'>" + email + "</span><p>"+comment+ "</p></div>";
+                $('#com').append(res);
+                // 重置表单
+                $('input[type=reset]').trigger("click");
+            }else{
+                var message="<span id='tmp'>评论成功</span>";
+                $("#message").html("");
+                $("#message").html(message);
+                $("#tmp").fadeOut(3000,document.location.reload());
+            }
+        },
+        error:function(){
+            alert("服务器出问题，提交未成功！");
+        }
+    }
+
+    )
+
+}
+</script>
+{% endblock %}
+
+
+

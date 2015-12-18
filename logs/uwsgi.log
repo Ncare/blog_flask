@@ -1,0 +1,129 @@
+*** Starting uWSGI 2.0.11.2 (64bit) on [Fri Dec 18 16:24:28 2015] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81) on 16 December 2015 14:59:33
+os: Darwin-14.5.0 Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53 PDT 2015; root:xnu-2782.40.9~1/RELEASE_X86_64
+nodename: ncaredeMBP
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /Users/ncare-pc/Code/Python/Flask_blog
+detected binary path: /Users/ncare-pc/Code/Python/Flask_blog/venv/bin/uwsgi
+chdir() to /Users/ncare-pc/Code/Python/Flask_blog
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 4864
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
+Python main interpreter initialized at 0x7fde33c0dbe0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415280 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/flask_sqlalchemy/__init__.py:800: UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.
+  warnings.warn('SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.')
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fde33c0dbe0 pid: 1802 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1802)
+spawned uWSGI worker 1 (pid: 1807, cores: 2)
+spawned uWSGI worker 2 (pid: 1808, cores: 2)
+spawned uWSGI worker 3 (pid: 1809, cores: 2)
+spawned uWSGI worker 4 (pid: 1810, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 17 ***
+[{'name': '测试', 'id': 1}, {'name': '记录', 'id': 2}]
+[pid: 1810|app: 0|req: 1/1] 127.0.0.1 () {46 vars in 995 bytes} [Fri Dec 18 16:24:36 2015] GET /tags => generated 3793 bytes in 55 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 0)
+[pid: 1810|app: 0|req: 2/2] 127.0.0.1 () {46 vars in 984 bytes} [Fri Dec 18 16:24:37 2015] GET / => generated 5805 bytes in 50 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 1/3] 127.0.0.1 () {46 vars in 994 bytes} [Fri Dec 18 16:24:38 2015] GET /posts/3 => generated 7579 bytes in 62 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 0)
+<Request 'http://127.0.0.1/search/?keyword=踌躇一致' [GET]>
+[pid: 1808|app: 0|req: 2/4] 127.0.0.1 () {46 vars in 1090 bytes} [Fri Dec 18 16:25:17 2015] GET /search/?keyword=%E8%B8%8C%E8%BA%87%E4%B8%80%E8%87%B4 => generated 3505 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[{'name': '测试', 'id': 1}, {'name': '记录', 'id': 2}]
+[pid: 1808|app: 0|req: 3/5] 127.0.0.1 () {46 vars in 1040 bytes} [Fri Dec 18 16:25:20 2015] GET /tags => generated 3793 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 309 bytes (2 switches on core 0)
+[pid: 1808|app: 0|req: 4/6] 127.0.0.1 () {46 vars in 984 bytes} [Fri Dec 18 16:25:20 2015] GET / => generated 5805 bytes in 47 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+<Request 'http://127.0.0.1/search/?keyword=踌躇' [GET]>
+[pid: 1810|app: 0|req: 3/7] 127.0.0.1 () {46 vars in 1047 bytes} [Fri Dec 18 16:25:25 2015] GET /search/?keyword=%E8%B8%8C%E8%BA%87 => generated 4199 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 5/8] 127.0.0.1 () {46 vars in 1024 bytes} [Fri Dec 18 16:25:59 2015] GET /about => generated 3954 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[pid: 1810|app: 0|req: 4/9] 127.0.0.1 () {46 vars in 995 bytes} [Fri Dec 18 16:26:00 2015] GET /about => generated 3954 bytes in 4 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[{'name': '测试', 'id': 1}, {'name': '记录', 'id': 2}]
+[pid: 1808|app: 0|req: 6/10] 127.0.0.1 () {46 vars in 993 bytes} [Fri Dec 18 16:26:01 2015] GET /tags => generated 3793 bytes in 5 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 7/11] 127.0.0.1 () {46 vars in 984 bytes} [Fri Dec 18 16:26:01 2015] GET / => generated 5805 bytes in 26 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 8/12] 127.0.0.1 () {44 vars in 957 bytes} [Fri Dec 18 16:26:12 2015] GET /admin => generated 253 bytes in 4 msecs (HTTP/1.1 301) 4 headers in 358 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 9/13] 127.0.0.1 () {44 vars in 959 bytes} [Fri Dec 18 16:26:12 2015] GET /admin/ => generated 1651 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[pid: 1810|app: 0|req: 5/14] 127.0.0.1 () {46 vars in 949 bytes} [Fri Dec 18 16:26:12 2015] GET /static/js/back.js => generated 321 bytes in 16 msecs via sendfile() (HTTP/1.1 200) 8 headers in 510 bytes (0 switches on core 1)
+[pid: 1808|app: 0|req: 10/15] 127.0.0.1 () {46 vars in 975 bytes} [Fri Dec 18 16:26:12 2015] GET /static/js/ckeditor/ckeditor.js => generated 510862 bytes in 19 msecs via sendfile() (HTTP/1.1 200) 8 headers in 516 bytes (0 switches on core 0)
+[pid: 1808|app: 0|req: 11/16] 127.0.0.1 () {46 vars in 1016 bytes} [Fri Dec 18 16:26:18 2015] GET /admin/posts/add => generated 3432 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 309 bytes (1 switches on core 1)
+[pid: 1810|app: 0|req: 6/17] 127.0.0.1 () {46 vars in 993 bytes} [Fri Dec 18 16:26:18 2015] GET /static/js/ckeditor/config.js?t=F969 => generated 1321 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 8 headers in 512 bytes (0 switches on core 1)
+[pid: 1808|app: 0|req: 13/18] 127.0.0.1 () {46 vars in 1034 bytes} [Fri Dec 18 16:26:18 2015] GET /static/js/ckeditor/skins/moono/editor.css?t=F969 => generated 30284 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 514 bytes (0 switches on core 0)
+[pid: 1808|app: 0|req: 13/19] 127.0.0.1 () {46 vars in 1001 bytes} [Fri Dec 18 16:26:18 2015] GET /static/js/ckeditor/lang/zh-cn.js?t=F969 => generated 10715 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 513 bytes (0 switches on core 1)
+[pid: 1810|app: 0|req: 7/20] 127.0.0.1 () {46 vars in 993 bytes} [Fri Dec 18 16:26:18 2015] GET /static/js/ckeditor/styles.js?t=F969 => generated 3484 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 512 bytes (0 switches on core 1)
+[pid: 1810|app: 0|req: 8/21] 127.0.0.1 () {46 vars in 1014 bytes} [Fri Dec 18 16:26:18 2015] GET /static/js/ckeditor/contents.css?t=F969 => generated 1835 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 513 bytes (0 switches on core 0)
+[pid: 1808|app: 0|req: 14/22] 127.0.0.1 () {46 vars in 1066 bytes} [Fri Dec 18 16:26:18 2015] GET /static/js/ckeditor/skins/moono/icons_hidpi.png => generated 34465 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 501 bytes (0 switches on core 1)
+[pid: 1810|app: 0|req: 9/23] 127.0.0.1 () {54 vars in 1095 bytes} [Fri Dec 18 16:26:53 2015] POST /admin/preview => generated 291 bytes in 4 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 1)
+[pid: 1807|app: 0|req: 1/24] 127.0.0.1 () {46 vars in 1021 bytes} [Fri Dec 18 16:26:53 2015] GET /admin/preview => generated 291 bytes in 11 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 15/25] 127.0.0.1 () {54 vars in 1095 bytes} [Fri Dec 18 16:26:59 2015] POST /admin/preview => generated 291 bytes in 3 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 1)
+[pid: 1810|app: 0|req: 10/26] 127.0.0.1 () {46 vars in 1021 bytes} [Fri Dec 18 16:26:59 2015] GET /admin/preview => generated 947 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 308 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 16/27] 127.0.0.1 () {46 vars in 993 bytes} [Fri Dec 18 16:26:59 2015] GET /static/css/sticky-footer.css => generated 602 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 511 bytes (0 switches on core 0)
+[pid: 1808|app: 0|req: 17/28] 127.0.0.1 () {54 vars in 1095 bytes} [Fri Dec 18 16:27:07 2015] POST /admin/preview => generated 291 bytes in 1 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 18/29] 127.0.0.1 () {46 vars in 1021 bytes} [Fri Dec 18 16:27:07 2015] GET /admin/preview => generated 947 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 308 bytes (1 switches on core 0)
+success
+[pid: 1810|app: 0|req: 11/30] 127.0.0.1 () {54 vars in 1198 bytes} [Fri Dec 18 16:27:12 2015] POST /admin/posts/add => generated 1646 bytes in 31 msecs (HTTP/1.1 200) 3 headers in 315 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 19/31] 127.0.0.1 () {46 vars in 1023 bytes} [Fri Dec 18 16:27:13 2015] GET /admin/posts => generated 6297 bytes in 24 msecs (HTTP/1.1 200) 3 headers in 315 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 20/32] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:15 2015] POST /admin/showComment => generated 68 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 305 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 21/33] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:17 2015] POST /admin/showComment => generated 197 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 22/34] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:18 2015] POST /admin/showComment => generated 311 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 23/35] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:19 2015] POST /admin/showComment => generated 480 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 24/36] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:24 2015] POST /admin/showComment => generated 311 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 25/37] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:25 2015] POST /admin/showComment => generated 197 bytes in 6 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 26/38] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:25 2015] POST /admin/showComment => generated 311 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 27/39] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:26 2015] POST /admin/showComment => generated 480 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 28/40] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:26 2015] POST /admin/showComment => generated 311 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 29/41] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:27 2015] POST /admin/showComment => generated 197 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 30/42] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:28 2015] POST /admin/showComment => generated 311 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 31/43] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:28 2015] POST /admin/showComment => generated 480 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 32/44] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:29 2015] POST /admin/showComment => generated 311 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1810|app: 0|req: 12/45] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:29 2015] POST /admin/showComment => generated 197 bytes in 9 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 33/46] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:31 2015] POST /admin/showComment => generated 480 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 34/47] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:32 2015] POST /admin/showComment => generated 311 bytes in 34 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 35/48] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:33 2015] POST /admin/showComment => generated 197 bytes in 5 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 36/49] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:34 2015] POST /admin/showComment => generated 480 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 37/50] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:35 2015] POST /admin/showComment => generated 480 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 38/51] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:35 2015] POST /admin/showComment => generated 311 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 39/52] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:35 2015] POST /admin/showComment => generated 480 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+[pid: 1808|app: 0|req: 40/53] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:39 2015] POST /admin/showComment => generated 311 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 1)
+[pid: 1808|app: 0|req: 41/54] 127.0.0.1 () {54 vars in 1105 bytes} [Fri Dec 18 16:27:39 2015] POST /admin/showComment => generated 197 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 306 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.11.2 (64bit) on [Fri Dec 18 16:44:08 2015] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81) on 16 December 2015 14:59:33
+os: Darwin-14.5.0 Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53 PDT 2015; root:xnu-2782.40.9~1/RELEASE_X86_64
+nodename: ncaredeMBP
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /Users/ncare-pc/Code/Python/Flask_blog
+detected binary path: /Users/ncare-pc/Code/Python/Flask_blog/venv/bin/uwsgi
+chdir() to /Users/ncare-pc/Code/Python/Flask_blog
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 4864
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
+Python main interpreter initialized at 0x7fdfb1d00a20
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415280 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/flask_sqlalchemy/__init__.py:800: UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.
+  warnings.warn('SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.')
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fdfb1d00a20 pid: 1942 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1942)
+spawned uWSGI worker 1 (pid: 1947, cores: 2)
+spawned uWSGI worker 2 (pid: 1948, cores: 2)
+spawned uWSGI worker 3 (pid: 1949, cores: 2)
+spawned uWSGI worker 4 (pid: 1950, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 17 ***
+[pid: 1950|app: 0|req: 1/1] 127.0.0.1 () {46 vars in 984 bytes} [Fri Dec 18 16:44:12 2015] GET / => generated 6123 bytes in 94 msecs (HTTP/1.1 200) 3 headers in 315 bytes (1 switches on core 0)

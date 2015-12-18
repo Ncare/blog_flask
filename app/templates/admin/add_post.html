@@ -1,0 +1,84 @@
+{% extends "admin/index.html" %}
+
+
+
+{% block add_post %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    		<h3 class="panel-title">添加</h3>
+  	</div>
+    <div class="panel-body">
+<form method="post">
+  <div class="form-group">
+    <label for="Title">Title</label>
+    <input type="text" class="form-control" name="title" value="" id="title">
+  </div>
+  <div class="form-group">
+      <label for="Tags">Tags</label>
+      <input type="text" class="form-control" name="tags" placeholder="使用, 隔开">
+  </div>
+  <div>
+    <label for="Content">Content</label>
+    <textarea class="form-control" rows="5" name="content" id="editor"></textarea>
+  </div>
+  <div style="margin-top:10px;">
+  <button type="submit" class="btn btn-default" onclick="return onAdd()">提交</button>
+  <button class="btn btn-default" id="preview" onclick="return false;">预览</button>
+  </div>
+</form>
+
+        </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        editor = CKEDITOR.replace('editor');
+        }
+
+
+
+    )
+
+    $('#preview').click(function() {
+
+            var title = $('#title').val();
+
+            // 无法通过$('$editor')直接获得值
+            var content = CKEDITOR.instances['editor'].getData();
+
+            var url = '/admin/preview';
+
+            var data = {};
+            data.title = title;
+            data.content = content;
+            data = JSON.stringify(data);
+
+            $.ajax({
+
+                url:url,
+                type:'POST',
+                data:data,
+                contentType:"application/json",
+                success:function(data){
+
+                    },
+                error:function(){
+
+                    }
+
+
+                }
+
+            )
+            var handle = window.open(url)
+
+
+            return false;
+        }
+
+    )
+</script>
+{% endblock %}

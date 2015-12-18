@@ -1,0 +1,25 @@
+{% extends 'web/base.html' %}
+
+
+{% block content %}
+
+			{% if posts%}
+				{% for post in posts %}
+					<div class="table " style="border-bottom: 1px #eee solid">
+						<h4><a href="/posts/{{post.id}}">{{post.title}}</a></h4>
+						<span class="glyphicon glyphicon-user" >&nbsp;xiong&nbsp;</span>
+						<span class="glyphicon glyphicon-calendar" aria-hidden="true">&nbsp;{{post.updateAt}}&nbsp;</span>
+						<span class="glyphicon glyphicon-comment" aria-hidden="true">&nbsp;&nbsp;</span>
+						<p class="p_main" style="margin-top:5px;"> {{post.content | safe}}</p>
+  					</div>
+				{% endfor %}
+			{% else %}
+			{% endif%}
+
+           {% from 'common/pager.html' import page_func %}
+           {{ page_func("index?page=", '', pager) }}
+
+
+{% endblock %}
+
+
